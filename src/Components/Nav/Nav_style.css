@@ -1,0 +1,462 @@
+
+.Nav_container {
+  height: 8.2rem;
+  background: transparent;
+}
+
+.cart_header {
+  height: 8rem;
+  padding: 0.8rem;
+  background-color: white;
+
+}
+
+.cart_header h1 {
+  display: inline;
+  font-size: 4rem;
+  padding: 1rem;
+  font-weight: 200;
+  color: rgb(82, 77, 77);
+  font-family: "overall";
+}
+
+.cart_row {
+  background-color: white;
+  height: auto;
+  width: 25.5vw;
+  position: absolute;
+  right: 1.5rem;
+  z-index: 1;
+
+  display: none;
+  animation: slideLeft 1s;
+
+  border: 1px solid #97d36c;
+}
+
+.Confirm_order {
+  background-color: #66b032;
+  height: auto;
+  margin-top: 2rem;
+}
+
+.Confirm_order button {
+  width: 15rem;
+  height: 6rem;
+  background-color: #66b032;
+  color: white;
+  border: none;
+  font-size: 2.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  float: right;
+  font-family: "overall";
+}
+
+.Confirm_order button:hover {
+  background-color: orange;
+  width: 100%;
+}
+
+#cart_close {
+  font-size: 4rem;
+  color: black;
+  float: right;
+  cursor: pointer;
+}
+
+.border_fill {
+  position: absolute;
+  height: 0.5rem;
+  /* 
+  animation-name: border_animation;
+  animation-iteration-count: infinite;
+  animation-duration: 6s; */
+}
+
+.logo_col {
+  height: 10rem;
+  width: 40vw;
+}
+
+.cart_item {
+  overflow-y: scroll;
+  height: 74vh;
+}
+
+#Logo_name {
+  font-size: 3.5rem;
+  font-weight: 200;
+  font-family: "Headers";
+  padding-top: 1rem;
+  letter-spacing: 1rem;
+  text-align: center;
+  animation-name: logo_anim;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+}
+
+#icon_cart {
+  display: none;
+  float: right;
+  cursor: pointer;
+  margin-right: 4rem;
+}
+
+#icon_cart i {
+  color: #66b032;
+  font-size: 4rem;
+}
+
+#icon {
+  display: none;
+  float: right;
+  cursor: pointer;
+}
+
+#icon i {
+  font-size: 4rem;
+  color: black;
+}
+
+#cart_icon {
+  font-size: 2rem;
+}
+
+#icon_profile {
+  display: none;
+  float: right;
+  cursor: pointer;
+  margin-right: 4rem;
+}
+
+#icon_profile i {
+  font-size: 4rem;
+}
+
+ul {
+  display: block;
+  margin-top: 0px;
+  padding: 1rem;
+  cursor: pointer;
+  float: right;
+}
+
+#lin {
+  text-decoration: none;
+}
+
+ul li {
+  font-weight: 200;
+  font-size: 2rem;
+  display: inline;
+  padding: 1.9rem;
+  font-family: "overall";
+  margin-left: 1rem;
+  color: black;
+  border-bottom: 1px solid #c7c4c4;
+
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+ul li i{
+font-size: 2.5rem;
+}
+
+#inner_ul {
+  background-color: white;
+  opacity: 0.96;
+  position: absolute;
+  margin-left: 25rem;
+  margin-top: 0rem;
+  display: none;
+}
+
+#inner_ul li {
+  display: block;
+  text-align: left;
+}
+
+ul li:hover {
+  font-weight: 700;
+  color: #66b032;
+  border-color: #66b032;
+  border-width: 2px;
+  text-decoration: none;
+}
+
+ul li:hover #inner_ul {
+  display: block;
+  
+}
+
+.Profile_row {
+  background-color: white;
+  position: absolute;
+  right: 0;
+  top: 8.5rem;
+  width: 13rem;
+  height: 15rem;
+  display: none;
+}
+
+.Profile_row ul {
+  float: left;
+}
+
+.Profile_row ul li {
+  text-align: center;
+  display: block;
+  font-size: 1.5rem;
+}
+
+/* ==============================Cart CSS ===============================*/
+
+.nav_cart_card {
+  width: 30rem;
+  height: 15rem;
+
+  border-bottom: 1px solid rgb(201, 195, 195);
+  display: inline-block;
+
+  margin-top: 1rem;
+
+  padding: 2rem;
+
+  cursor: pointer;
+}
+
+.nav_cart_card:hover {
+  box-shadow: 0 7px 16px 0 rgba(211, 209, 209, 0.5),
+    0 6px 20px 0 rgba(243, 240, 240, 0.19);
+}
+
+
+.cart_img {
+  width: 30%;
+  display: inline-block;
+}
+
+.text_sec {
+  margin-left: 9rem;
+  width: 70%;
+  margin-top: -5rem;
+}
+
+.nav_cart_card img {
+  width: 7rem;
+  height: 7rem;
+  transition: transform 0.2s;
+}
+
+.nav_cart_card:hover img {
+  width: 7rem;
+  height: 7rem;
+  transform: scale(1.2);
+}
+
+.text_sec p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: inline;
+  margin-left: 2rem;
+  padding-bottom: 0rem;
+}
+
+.text_sec p sup {
+  font-size: 1.4rem;
+}
+
+#i_name {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+#cancel_item {
+  font-size: 1.8rem;
+  font-weight: 200;
+  float: right;
+  margin-top: -1rem;
+  display: none;
+}
+
+#cancel_item:hover {
+  color: green;
+  cursor: pointer;
+}
+
+#cart {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.details {
+  background-color: white;
+  height: 50rem;
+  text-align: center;
+}
+
+#item_del {
+  padding: 1rem;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: block;
+  cursor: pointer;
+  background-color: #66b032;
+  border: none;
+}
+
+
+#qut_bt {
+  display: none;
+  padding: 0.5rem;
+  width: 3rem;
+  margin-top:1rem ;
+  margin-right: 1rem;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  float: right;
+}
+
+
+.nav_cart_card:hover #cancel_item {
+  display: block;
+}
+
+.nav_cart_card:hover #qut_bt {
+  display: block;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .Nav_container {
+    height: 9rem;
+    border-bottom: 1px solid #66b032 !important;
+  }
+
+  .logo_col {
+    height: 10rem;
+    width: 100vw;
+  }
+
+  .border_fill {
+    display: none;
+  }
+
+  #Logo_name {
+    position: absolute;
+    animation: none;
+  }
+
+  #icon_cart {
+    margin-top: 1rem;
+    display: inline;
+  }
+
+  #icon_profile {
+    margin-top: 1rem;
+    display: inline;
+  }
+
+  #icon_profile i {
+    color: #66b032;
+  }
+
+  #icon_cart i {
+    color: #66b032;
+  }
+
+  #icon {
+    margin-top: 1rem;
+    display: inline;
+  }
+
+  #icon i {
+    color: #66b032;
+  }
+
+  .Profile_row {
+    height: 20rem;
+    width: 17rem;
+    margin-top: 1rem;
+    border: 1px solid #c7c4c4;
+    border-radius: 0rem 0rem 0rem 12rem;
+  }
+
+  #md_nav {
+    border-top: 1px solid #66b032 !important;
+    display: none;
+    height: 9vh;
+    margin-top: 0rem;
+    background-color: white;
+  }
+
+  ul {
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  ul li {
+    font-weight: 700;
+    font-size: 1.4rem;
+    display: inline;
+    padding: 1.9rem 1.9rem 3rem 1.9rem;
+    color: black;
+    border-bottom: 1px solid #ffffff;
+    text-align: center;
+    transition: background-color 0.2s;
+  }
+
+  #inner_cart_icon {
+    display: none;
+  }
+
+  #inner_profile_icon {
+    display: none;
+  }
+
+  .cart_row {
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    display: none;
+    animation: slideLeft 1s;
+    overflow-y: scroll;
+  }
+
+  .nav_cart_card {
+    width: 100%;
+  }
+
+  .Confirm_order {
+    background-color: #66b032;
+    height: auto;
+    margin-top: 1rem;
+  }
+
+  .Confirm_order button {
+    width: 15rem;
+    height: 6rem;
+    background-color: #66b032;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+    float: right;
+  }
+}

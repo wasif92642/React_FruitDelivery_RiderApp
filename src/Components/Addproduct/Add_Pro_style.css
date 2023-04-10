@@ -1,0 +1,352 @@
+.admin_wrapper{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+
+
+
+.nav_row_admin{
+    background-color: white;
+    position: sticky;
+    top: 0;
+    width: 99vw;
+    height: 7rem;
+    z-index: 1;
+}
+
+.nav_row_admin .col-3{
+    padding: none;
+    height: 7rem;
+}
+
+
+.nav_row_admin h1{
+    text-align: center;
+    color: black;
+    font-size: 3rem;
+  
+}
+
+
+.Admin_ul ul{
+    list-style-type: none;
+    margin-right: 1rem;
+}
+.Admin_ul ul a{
+    text-decoration: none;
+}
+
+.Admin_ul ul a li{
+    color: black;
+    display: inline;
+    text-align: center;
+
+    font-size: 2rem;
+
+}
+
+.Admin_ul ul a li:hover{
+    color: orange;
+    border-color: orange;
+}
+
+.Add_pd_col{
+    background-color: white;
+    height: 100vh;
+    padding: 0;
+    width: auto;
+}
+
+
+
+.Add_pd_col label{
+    font-size: 1.5rem;
+}
+
+.Add_pd_col select{
+    font-size: 1.5rem;
+    outline: none;
+    border:None;
+    padding: 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+
+}
+
+.Add_pd_col input{
+    font-size: 1.5rem;
+    padding: 1rem;
+    width: 70%;
+    height: 3.8rem;
+
+}
+.Add_pd_col .col-3 [class*="col-12"] {
+    border: 1px solid orange;
+}
+
+
+#Price_section label{
+    margin-right: 0.5rem;
+    margin-left: 0.8rem;
+}
+#Price_section_deal label{
+    margin-right: 0.5rem;
+    margin-left: 0.8rem;
+}
+
+#Price_section_deal  input{
+    font-size: 1.5rem;
+    padding: 1rem;
+    width: 50%;
+    height: 3.8rem;
+}
+
+#Price_section input{
+    font-size: 1.5rem;
+    padding: 1rem;
+    width: 20%;
+    height: 3.8rem;
+}
+
+.Add_pd_col button{
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: 1px solid orange;
+}
+
+
+#brows{
+    display: none;
+}
+
+#Img_bt_add{
+
+    font-size: 1.3rem;
+    background-color: white;
+    width: 50%;
+    border: 0.1rem solid green;
+    margin-left: 0.4rem;
+}
+
+#Img_bt_add:hover{
+    cursor: pointer;
+    background-color: orange;
+}
+
+
+#Uplode_Bt{
+    cursor: pointer;
+
+}
+
+#Uplode_Bt:hover{
+    
+    background-color: orange;
+    border: 1px green solid;
+}
+.Product_screen {
+    padding: 0;
+   
+}
+
+.Product_screen h1{
+    text-align: center;
+    font-size: 3rem;
+}
+
+.Product_screen .row{
+    padding-top: 2rem;
+    position: sticky;
+    height:7rem;
+    top: 0;
+    background-color: #66B032;
+}
+
+
+.Product_screen{
+    height: 52.5rem;
+    overflow:scroll;
+    border:1px solid orange;
+}
+
+.add_product_row .col-7 .row h1{
+    font-size: 4rem;
+    text-align: center;
+}
+
+.admin_item_card {
+    width: 18rem;
+    height: 26rem !important;
+    color: "blue";
+    background-color: white;
+    border: 2px solid #66B032;
+    display: inline-block;
+    margin-left: 3rem;
+    margin-top: 1rem;
+    box-shadow: 0 7px 16px 0 rgba(239, 233, 233, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.admin_item_card p{
+    text-align: left;
+    font-size: 1.5rem;
+    padding-left: 1.5rem;
+    font-weight: 600;
+
+}
+
+
+
+
+
+#del{
+    margin: 0.4rem 0 0 0.4rem;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+
+}
+
+.admin_item_card:hover{
+    
+    
+    box-shadow: 0 7px 16px 0 rgba(52, 50, 50, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.admin_item_card:hover #del{
+    display: block;
+    cursor: pointer;
+}
+
+
+
+
+
+/* ========================================order row =============================*/
+
+.Order_row{
+    height: 100vh;
+    width: 99vw;
+    background-color: white;
+    padding-top: 7rem;
+}
+.Header_order{
+    background-color: lightblue;
+}
+
+.Header_order .col-1 , .col-2{
+    padding: 0;
+    text-align: center;
+} 
+
+
+
+.Header_order p {
+display: inline-block;
+font-size: 2rem;
+padding: 2rem;
+
+}
+
+.Order_List{
+    width: 100vw;
+    margin-top: 0.5rem;
+ 
+}
+
+.Order_List .col-1 , .col-2{
+    text-align: center;
+    padding: 0;
+
+}
+
+
+
+
+#O_l_p{
+    display: inline-block;
+    font-size: 1.5rem;
+    line-height: 5rem;
+
+}
+
+.Order_List button{
+    border: none;
+    font-size: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    margin: 1.5rem;
+}
+
+/* .Order_List:hover #Admin_bt{
+    display: inline-block;
+} */
+
+#Admin_bt{
+    display: inline-block;
+}
+
+.details{
+    
+    width: 100vw;
+    display: none;
+    height: auto;
+}
+
+.details div p{
+    padding: 2rem;
+    font-size: 2rem;
+    display: inline-block;
+    
+   
+}
+
+.item_details_admin{
+    border-bottom: 0.1rem solid black;
+    padding: 1rem;
+    height: 5rem;
+}
+
+.item_details .col-2 , .col-1{
+    font-size: 1.5rem;
+}
+
+
+
+#Price_section_deal{
+    display: none;
+}
+
+
+/* =================================Deliver Order Row  ====================================*/
+
+#Rider_Selection{
+    padding: 1rem;
+    border: none;
+    font-size: 2rem;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+    
+.Admin_ul ul a li{
+    display: inline;
+    text-align: center;
+
+    font-size: 1.2rem;
+    color: black;
+
+}
+
+.Add_pd_col [class*="col-"] {
+    border-bottom: 1px solid green;
+  }
+  
+}

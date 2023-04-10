@@ -1,0 +1,77 @@
+
+.wrapper_forget{
+
+  height: 100vh;
+  width: 100vw;
+  /* background: linear-gradient(to right, #9900ff, #cc80ff); */
+  background-image: url('../../Images/bg.jpg');
+  background-size: cover;
+}
+
+
+#forget_form{
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  margin-top: 10rem;
+  background-color: #fff;
+  box-shadow: 0 7px 16px 0 rgba(126, 124, 124, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 4rem;
+}
+
+  .bt1{
+    width: 100%;
+    margin-top: 20px;
+    background-color: #fa8f2b;
+    border: none;
+  }
+  
+  .bt1:hover{
+    background-color: #ff7b00;
+  
+  }
+
+  
+@keyframes popup {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+
+  
+  .danger{
+    animation: 0.5s ease-out 0s 1 popup;
+    background-color: rgb(252, 183, 183);
+    opacity: 0.5;
+    width: 100%;
+    display: block;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .success{
+    animation: 0.5s ease-out 0s 1 popup;
+    background-color: rgb(135, 241, 93);
+    opacity: 0.5;
+    width: 100%;
+    display: block;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .footer{
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.6rem;
+    color:#0272ce;
+    font-weight: 700;
+  }

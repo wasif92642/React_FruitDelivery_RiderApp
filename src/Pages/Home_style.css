@@ -1,0 +1,92 @@
+.Rider_wrapper{
+
+        width: 100vw;
+        height: 100vh;
+        background-image: url("../Images/17973908.jpg");
+        background-size: cover;  
+}
+
+.Order_wrapper{
+
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;  
+}
+
+
+
+
+.Rider_wrapper , .Order_wrapper .row{
+    padding: 0rem;
+}
+
+
+/* =======================================Rider_Order Page css  =======================*/
+
+
+#Order_Container{
+    background-color: lightblue;
+    margin-top: 1rem;
+}
+
+#Order_Container .row .col-2{
+    text-align: left;
+    padding-left: 2rem;
+}
+
+#CustomerName{
+    font-size: 3rem;
+    font-weight: 600;
+    display: inline-block;
+    padding-right: 2rem;
+}
+
+#Track_bt{
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: navajowhite;
+    position: relative;
+    float: right;
+    margin-top: 0rem;
+    margin-right: 3rem;
+    cursor: pointer;
+}
+
+.Customer_info p{
+    display: inline-block;
+    padding: 0 1rem 0 1rem;
+    border-left: 1px solid black;
+}
+
+.Customer_info .col-12 button{
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: navajowhite;
+    position: relative;
+    float: right;
+    margin-top: 0rem;
+    margin-right: 3rem;
+    cursor: pointer;
+}
+
+.inner_details{
+    display:none;
+    border-top: 2px solid orange;
+
+}
+
+.inner_details .header p{
+    display: inline-block;
+    padding: 0 4rem 0 4rem;
+    font-size: 2rem;
+    border-left: 1px solid black;
+
+}
+
+.inner_details .header2 p{
+    display: inline-block;
+    padding: 0 4rem 0 4rem;
+    font-size: 1.5rem;
+    border-left: 1px solid black;
+
+}

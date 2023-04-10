@@ -1,0 +1,46 @@
+
+.Rider{
+    height: 100vh;
+    width: 99vw;
+    padding-top: 7rem;
+}
+
+#Rider_Form input{
+    margin: 1rem 0 1rem 0;
+}
+
+#Rider_Form button{
+    font-size: 2rem;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.Rider_details{
+    padding: 0;
+}
+
+.Rider_details .row{
+    background-color: #66B032;
+    text-align: center;
+    height: 7rem;
+}
+
+#RI{
+    display: inline-block;
+    font-size: 1.5rem;
+
+    padding: 1rem 2rem 1rem 3rem;
+    line-height: 5rem;
+}
+
+.Rider_list{
+    border-bottom: 1px solid orange;
+}
+.Rider_list button{
+    border: none;
+    font-size: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    margin: 1.5rem;
+}

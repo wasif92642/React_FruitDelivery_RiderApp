@@ -1,0 +1,112 @@
+.wrapper_Signup {
+  height: 100vh;
+  width: 100vw;
+  /* background: linear-gradient(to right, #9900ff, #cc80ff); */
+  background-image: url("../../Images/bg.jpg");
+  background-size: cover;
+}
+
+#signup_form {
+  background-color: #fff;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  box-shadow: 0 7px 16px 0 rgba(126, 124, 124, 0.5),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 3rem;
+
+  border-radius: 1rem;
+}
+
+#signup_form .row {
+  margin-top: 1.2rem;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+label {
+  font-size: 2rem;
+}
+
+input {
+  font-size: 1.5rem;
+  border: 1px solid #fc600a;
+  padding: 1.2rem;
+  width: 100%;
+  font-weight: 600;
+}
+
+input:focus {
+  outline: none;
+}
+
+#footer .error {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #ff3300;
+  text-align: center;
+}
+
+#footer button {
+  float: left;
+  padding: 1rem;
+  outline: none;
+  border: none;
+  background-color: #fc600a;
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 1.7rem;
+  width: 100%;
+  transition: 100ms;
+  cursor: pointer;
+}
+
+#footer button:disabled {
+  background-color: gray !important;
+}
+
+#footer button:hover {
+  background-color: #ff7b00;
+}
+
+#footer p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000;
+}
+
+#footer p span a {
+  font-weight: bold;
+  color: #0066ff;
+  letter-spacing: 0.1rem;
+  font-size: 1.7rem;
+  text-decoration: none;
+}
+
+#gbutton {
+  background-color: #e70e0e;
+}
+
+.dangerr {
+  background-color: rgb(252, 183, 183);
+  opacity: 0.7;
+  width: 100%;
+  display: inline;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  color: black;
+  font-weight: 700;
+  text-align: center;
+}
+
+#namepop,
+#emailpop,
+#passpop {
+  display: none;
+}
+#passpop {
+  font-size: 1.1rem;
+}
