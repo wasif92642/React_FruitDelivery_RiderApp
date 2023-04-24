@@ -174,14 +174,14 @@ function Nav() {
                             <li>Order-Recived</li>
                         </Link>
                         
-                        <Link to="/"
+                        {/* <Link to="/"
                             style={
                                 {textDecoration: "None"}
                         }>
                             {" "}
                             <li>Payment</li>
                         </Link>
-                      
+                       */}
                          
                           
                             <li onClick={()=>{Log_out()}}>Logout</li>

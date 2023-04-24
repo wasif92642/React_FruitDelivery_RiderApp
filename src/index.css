@@ -35,7 +35,7 @@ ul , li , h1 , h2 , p, a{
 [class*="col-"] {
     float: left;
     padding: 1rem;
-    border: 0.1rem solid rgb(238, 7, 7);
+    /* border: 0.1rem solid rgb(238, 7, 7); */
 
 }
 

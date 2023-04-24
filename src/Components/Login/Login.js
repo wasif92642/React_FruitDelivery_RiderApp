@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { confirmPasswordReset, onAuthStateChanged } from "firebase/auth";
 import axios from "axios";
+import { auth } from "../../firebase";
 
 function Login() {
-  const passwordField = document.getElementById("password");
-  const togglePassword = document.getElementById("toggle-password");
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const [collectionData, setCollectionData] = useState(null);
 
@@ -24,15 +25,9 @@ function Login() {
       });
   }, []);
 
-  const show_pass = () => {
-    if (passwordField.type === "password") {
-      passwordField.type = "text";
-      togglePassword.textContent = "Hide";
-    } else {
-      passwordField.type = "password";
-      togglePassword.textContent = "Show";
-    }
-  };
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  }
 
   const [login_mail, set_login] = useState("");
   const [pass, setpass] = useState("");
@@ -83,17 +78,70 @@ function Login() {
  
   };
 
+  const isEmailAllowed = async (email) => {
+
+    const allowedEmails = ['ali913888@gmail.com'];
+    return allowedEmails.includes(email);
+  };
+
+  const LoginWithGoogle = async () => {
+    try {
+      // Sign the user in with the Google Sign-In provider
+      const result = await signInWithGoogle();
+      const user = result.user;
+  
+      // Check if the user's email is allowed
+      const emailAllowed = await isEmailAllowed(user.email);
+  
+      // If the email is not allowed, sign the user out and display an error message
+      if (!emailAllowed) {
+     
+        window.alert('Sorry, this email is not allowed to sign in.');
+        auth.signOut();
+        auth.currentUser.delete();
+        return;
+      } 
+  
+      // If the email is allowed, proceed with signing the user in
+      
+      console.log('User signed in:', user.uid);
+      navigate("/");
+      setError("");
+
+    }
+    
+    catch (error) {
+      setError("Failed to log in With Google");
+    }
+  
+  };
+
+/* 
+
   const LoginWithGoogle = async () => {
     await signInWithGoogle()
       .then(() => {
+        if(!auth.currentUser.email === 'ali913888@gmail.com'){
+
         navigate("/");
         setError("");
+        }
+
+        else{
+          auth.currentUser.delete();
+          
+          setError("");
+        }
+  
       })
+    
+
+
       .catch(() => {
         setError("Failed to log in With Google");
       });
   };
-
+ */
   return (
     <div className="wrapper-login">
       <div className="row" style={{ padding: "2rem", paddingTop: "12rem" }}>
@@ -119,7 +167,8 @@ function Login() {
                 onChange={(e) => {
                   setpass(e.target.value);
                 }}
-                type="password"
+                type={showPassword ? 'text' : 'password'} 
+              
                 placeholder="Password"
                 name="password"
                 id="password"
@@ -127,7 +176,7 @@ function Login() {
               <span
                 toggle="#password"
                 class="fa fa-fw fa-eye field-icon toggle-password"
-                onClick={show_pass}
+                onClick={()=>{toggleShowPassword()}}
               ></span>
               <br />
               <br />
