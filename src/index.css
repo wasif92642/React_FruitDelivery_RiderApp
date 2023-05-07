@@ -28,6 +28,20 @@ ul , li , h1 , h2 , p, a{
   font-family: sharp;
   src: url("./fonts/Exodus/ExodusDemo-Stencil.otf");
 }
+@font-face {
+  font-family: aller_rg;
+  src: url("./fonts/Aller/Aller_Rg.ttf");
+}
+@font-face {
+  font-family: aller_bold;
+  src: url("./fonts/Aller/Aller_Bd.ttf");
+}
+@font-face {
+  font-family: aller_lite;
+  src: url("./fonts/Aller/Aller_Lt.ttf");
+}
+
+
 
 
 
@@ -35,7 +49,7 @@ ul , li , h1 , h2 , p, a{
 [class*="col-"] {
     float: left;
     padding: 1rem;
-    /* border: 0.1rem solid rgb(238, 7, 7); */
+    border: 0.1rem solid rgb(238, 7, 7);
 
 }
 

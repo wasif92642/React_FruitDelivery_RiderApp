@@ -29,13 +29,13 @@ import ManageRider from "./ManageRider";
 const AddProduct = () => {
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
-  const [productName, setProductName] = useState("");
+  const [productName, setProductName] = useState(null);
   const [productPrice_raw, setProductPrice_raw] = useState(0);
   const [productPrice_chop, setProductPrice_chop] = useState(0);
   const [productPrice_Deal, setProductPrice_Deal] = useState(0);
   const [item_grandtotal, set_item_grandTotal] = useState(0);
   const [Category, setCategory] = useState("de");
-  const [Product_type, set_type] = useState("");
+  const [Product_type, set_type] = useState(null);
   const [tasks, setTasks] = useState([]);
   const [Order, setOrder] = useState([]);
   const [Rider_data, set_Rider] = useState([]);
@@ -57,10 +57,30 @@ const AddProduct = () => {
   };
 
   const uploadFile = () => {
+    if(Category == "de"){
+      alert("Select a category");
+    }
+    else if(Category == "Fruits" || Category == "Vegitable"){
+
+      
+
+
+
+    
+    if(productName === null || Product_type === null || imageUpload == null || productPrice_chop <=1 || productPrice_raw <=1) {
+      if(productPrice_chop <=-1 || productPrice_raw <=-1){
+        alert("Price Must be Positive");
+      }
+      else{
+      alert("Fill All Information");
+      }
+    }
+
+    else{
     const myCollectionRef = collection(firedb, Category);
     const q = query(myCollectionRef, where("ProductName", "==", productName));
 
-    if (imageUpload == null) return;
+  
 
     const imageRef = ref(storage, `images/fruits/${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
@@ -105,6 +125,66 @@ const AddProduct = () => {
         }
       });
     });
+  }
+
+
+
+
+    }
+
+    else if(Category == "deals"){
+      
+
+
+
+    
+    if(productName === null || Product_type === null || imageUpload == null ||productPrice_Deal <=1) {
+      if(productPrice_Deal <=-1){
+        alert("Price Must be Positive");
+      }
+      else{
+      alert("Fill All Information");
+      }
+    }
+
+    else{
+    const myCollectionRef = collection(firedb, Category);
+    const q = query(myCollectionRef, where("ProductName", "==", productName));
+
+  
+
+    const imageRef = ref(storage, `images/fruits/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrls((prev) => [...prev, url]);
+
+        if (Category == "deals") {
+          getDocs(q).then((querySnapshot) => {
+            if (querySnapshot.size === 0) {
+              // no matching documents found, insert the new data
+              addDoc(myCollectionRef, {
+                ProductName: productName,
+                productPrice_Deal: Number(productPrice_Deal),
+                ProductImg: url,
+                Product_Type: Product_type,
+              }).then(() => {
+                console.log("Data inserted successfully!");
+              });
+            } else {
+              // matching documents found, do not insert the new data
+              window.alert("Product already exists With Same Name!");
+            }
+          });
+        } else {
+          alert("Something went wrong")
+        }
+      });
+    });
+  }
+
+
+    }
+
   };
 
   useEffect(() => {
@@ -265,6 +345,9 @@ const AddProduct = () => {
       );
     });
   }, []);
+
+
+ 
 
   useEffect(() => {
     for (let i = 0; i < Order.length; i++) {
@@ -444,7 +527,41 @@ const AddProduct = () => {
             <h1>Active Products</h1>
           </div>
           {tasks &&
-            tasks.map((doc) => (
+            tasks.map((doc) => {
+              if(Category == "deals"){
+                return(
+                  <div className="admin_item_card">
+                <img
+                  src={doc.data.ProductImg}
+                  style={{
+                    width: "10rem",
+                    height: "10rem",
+                    marginLeft: "4rem",
+                    marginTop: "1rem",
+                  }}
+                />
+
+                <p>Name: {doc.data.ProductName}</p>
+          
+                <p>Deal/Price: {doc.data.productPrice_Deal}</p>
+                <p>
+                  <sub>ID: {doc.id}</sub>
+                </p>
+
+                <button
+                  id="del"
+                  onMouseEnter={(e) => {
+                    setid(doc.id);
+                  }}
+                  onClick={handleDelete}
+                >
+                  Remove
+                </button>
+              </div>
+                )
+              }
+              else{
+              return(
               <div className="admin_item_card">
                 <img
                   src={doc.data.ProductImg}
@@ -474,7 +591,8 @@ const AddProduct = () => {
                   Remove
                 </button>
               </div>
-            ))}{" "}
+              )}
+                })}{" "}
         </div>
       </div>
 
@@ -574,17 +692,17 @@ const AddProduct = () => {
                         doc.Order_data.Items.map((e) => {
                           return (
                             <div className="row item_details_admin">
-                              <div className="col-2">{e.id}</div>
+                              <div className="col-2 idm">{e.id}</div>
 
-                              <div className="col-2">{e.data.Name}</div>
+                              <div className="col-1 idm">{e.data.Name}</div>
 
-                              <div className="col-2">{e.data.Type}</div>
+                              <div className="col-1 idm">{e.data.Type}</div>
 
-                              <div className="col-1">{e.data.Price}</div>
+                              <div className="col-1 idm">{"Price = " + e.data.Price}</div>
 
-                              <div className="col-1">{e.data.Quantity}</div>
+                              <div className="col-1 idm">{"QTY : " + e.data.Quantity}</div>
 
-                              <div className="col-3">
+                              <div className="col-1 idm">
                                 {e.data.Quantity * e.data.Price}
                               </div>
                             </div>
@@ -640,6 +758,7 @@ const AddProduct = () => {
                       style={{
                         fontSize: "2rem",
                         fontWeight: "400",
+                        fontFamily:'aller_lite'
                       }}
                     >
                       {doc.Order_id}{" "}
@@ -648,7 +767,7 @@ const AddProduct = () => {
                   <div className="col-2">
                     <p id="O_l_p">{doc.Order_data.Person}</p>
                   </div>
-                  <div className="col-1">
+                  <div className="col-2">
                     <p id="O_l_p">{doc.Order_data.Phone}</p>
                   </div>
                   <div className="col-2">
@@ -659,17 +778,15 @@ const AddProduct = () => {
                       {doc.Order_data.Location}: {doc.Order_data.City}{" "}
                     </p>
                   </div>
-
+                      <div className="col-2 bt_sec">
                   <select id="Rider_Selection">
                     {Rider_data &&
                       Rider_data.map((doc) => {
                         return <option style={{fontSize:"2rem"}} onClick={(e)=>{set_Selected_Rider(e.target.value);set_Rider_Id(doc.Rider_id)}}>{doc.Rider_data.name}</option>;
                       })}
                   </select>
-
                   <button
                     type="button"
-                    style={{ fontSize: "2rem" }}
                     onClick={() => {
                       Deliver_Order( doc.Order_data, doc.Order_id , Select_Rider_Id);
                     }}
@@ -677,6 +794,8 @@ const AddProduct = () => {
                   >
                     Deliver
                   </button>
+                    </div>
+                 
                 </div>
               );
             }
@@ -692,15 +811,7 @@ const AddProduct = () => {
               return (
                 <div className="row Order_List" id={doc.Order_id}>
                   <div className="col-1">
-                    <p
-                      id="O_l_p"
-                      style={{
-                        fontSize: "1rem",
-                        fontWeight: "600",
-                      }}
-                    >
-                      {doc.Order_id}
-                    </p>
+                    <p id="O_l_p" > {doc.Order_id}</p>
                   </div>
                   <div className="col-2">
 
@@ -709,12 +820,12 @@ const AddProduct = () => {
                   <div className="col-2">
                   <p id="O_l_p">{doc.Order_data.Phone}</p>
                   </div>
-                  <div className="col-2">
+                  <div className="col-3">
                   <p id="O_l_p">{doc.Order_data.Address}{" "}{" "}{doc.Order_data.Location}: {doc.Order_data.City}{" "}
                   </p>
                   </div>
-                  <div className="col-2">
-                  <p id="O_l_p">Payment Status = {doc.Order_data.Payment_Status} </p>
+                  <div className="col-2" id="pay_stat">
+                  <p >Payment Status = {doc.Order_data.Payment_Status} </p>
                   </div>
 
                   <button
@@ -731,26 +842,26 @@ const AddProduct = () => {
                     className="row details"
                     id={doc.Order_id + "inner_details"}
                   >
-                    {doc.Order_data.Items &&
-                      doc.Order_data.Items.map((e) => {
-                        return (
-                          <div className="row item_details_admin">
-                            <div className="col-2">{e.id}</div>
+                           {doc.Order_data.Items &&
+                        doc.Order_data.Items.map((e) => {
+                          return (
+                            <div className="row item_details_admin">
+                              <div className="col-2 idm">{e.id}</div>
 
-                            <div className="col-2">{e.data.Name}</div>
+                              <div className="col-1 idm">{e.data.Name}</div>
 
-                            <div className="col-2">{e.data.Type}</div>
+                              <div className="col-1 idm">{e.data.Type}</div>
 
-                            <div className="col-1">{e.data.Price}</div>
+                              <div className="col-1 idm">{"Price = " + e.data.Price}</div>
 
-                            <div className="col-1">{e.data.Quantity}</div>
+                              <div className="col-1 idm">{"QTY : " + e.data.Quantity}</div>
 
-                            <div className="col-3">
-                              {e.data.Quantity * e.data.Price}
+                              <div className="col-1 idm">
+                                {e.data.Quantity * e.data.Price}
+                              </div>
                             </div>
-                          </div>
-                        );
-                      })}
+                          );
+                        })}
                     <div
                       className="col-12"
                       style={{

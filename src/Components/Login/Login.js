@@ -16,7 +16,7 @@ function Login() {
 
   useEffect(() => {
     axios
-      .get("http://192.168.0.109:3000/gg")
+      .get("http://192.168.0.105:3000/gg")
       .then((response) => {
         setCollectionData(response.data);
       })

@@ -22,7 +22,7 @@ function ManageRider() {
 
 
 const del_user = async(email , object)=>{
-  const response = await axios.post('http://192.168.0.109:3000/del', {
+  const response = await axios.post('http://192.168.0.105:3000/del', {
     email,object
   }).then(()=>{
 
@@ -38,7 +38,7 @@ const del_user = async(email , object)=>{
 
   const createUser = async (email, password, displayName) => {
     
-      const response = await axios.post('http://192.168.0.109:3000/users', {
+      const response = await axios.post('http://192.168.0.105:3000/users', {
         email,
         password,
         Phone,
